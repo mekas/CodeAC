@@ -8,5 +8,10 @@
 
 int sum(int , int );
 int suml(Vector *);
-int sumVec(Vector2d *);
+Vector *sumVec(Vector2d *);
+int minimumOfArray(Vector *vector);
+int maximumOfArray(Vector *vector);
+void maxMinOfArray(Vector *vector, int **, int **);
+Vector *minimumOfVec(Vector2d *vector2d);
+Vector *genericOpVec(int (*func)(Vector *), Vector2d *vector2d);
 #endif //CODEAC_COMPUTE_H

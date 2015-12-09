@@ -18,7 +18,7 @@ Vector *readInputAsIntVect(const char *filepath){
         while(fgets(line,sizeof(line),fp)!=NULL){
             //printf("%s\n",line);
             vect = parseStringAsIntArr(line);
-            vector_print(vect);
+            //vector_print(vect);
         }
         fclose(fp);
     } else {
@@ -36,7 +36,7 @@ Vector2d *readInputAsIntVect2d(const char *filepath){
     //inspiration from http://stackoverflow.com/questions/2372813/reading-one-line-at-a-time-in-c
     if(fp !=NULL){
         char line[1000]; //assuming 1 line not exceeding 1000 characters
-        Vector2d *vector2d = malloc(sizeof(Vector2d));
+        vector2d = malloc(sizeof(Vector2d));
         vector2d_init(vector2d);
         //skip read header
         fgets(line,sizeof(line),fp);

@@ -31,6 +31,8 @@ void vector2d_append(Vector2d *vector2d, Vector *vector) {
     // make sure there's room to expand into
     vector2d_double_capacity_if_full(vector2d);
 
+    //(*vector2d)->vector[(*vector2d)->size++];
+
     // append the value and increment vector->size
     vector2d->vector[vector2d->size++]=*vector;
 }
