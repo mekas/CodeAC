@@ -10,5 +10,6 @@
 
 Vector *readInputAsIntVect(const char *);
 Vector2d *readInputAsIntVect2d(const char *);
+Vector *readInputAsIntVectSkipFirstValue(const char *);
 Vector *parseStringAsIntArr(char *);
 #endif //CODEAC_IO_H

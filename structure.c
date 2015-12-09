@@ -114,3 +114,20 @@ void vector_print(Vector *vector){
     }
     printf("\n");
 }
+
+/**
+ * Return subvectir in range [start,end)
+ * Start starting index from 0
+ */
+Vector *vector_subvector(Vector *vector, int start, int end){
+    Vector *subvect = malloc(sizeof(Vector));
+    vector_init(subvect);
+    int i;
+    int caps=vector->size;
+    subvect->size == end - start;
+    vector_double_capacity_if_full(subvect);
+    for(i=start;i<end;i++){
+        vector_append(subvect,vector_get(vector,i));
+    }
+    return subvect;
+}

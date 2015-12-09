@@ -37,5 +37,6 @@ void vector2d_double_capacity_if_full(Vector2d *vector2d);
 void vector_free(Vector *vector);
 void vector2d_free(Vector2d *vector2d);
 void vector_print(Vector *vector);
+Vector *vector_subvector(Vector *vector, int start, int end);
 
 #endif //CODEAC_STRUCTURE_H

@@ -5,6 +5,32 @@
 #include "compute.h"
 #include "structure.h"
 
+int fahrenheitToCelcius(int fahr){
+    int y = round((float)(fahr-32)*100/((float)(212-32)));
+    return y;
+}
+
+Vector *fahrenheitToCelciusVect(Vector *vect){
+    //create copy of original vector to get the same size
+    Vector *result=malloc(sizeof(Vector));
+    vector_init(result);
+    int i,x,caps=vect->size;
+    for(i=0;i<caps;i++){
+        x=vector_get(vect,i);
+        vector_set(result,i,fahrenheitToCelcius(x));
+    }
+    return result;
+}
+
+/**
+ * Given a vector divide first element by second element of vector, round to int
+ */
+int divide(Vector *vector){
+    float a=(float)vector_get(vector,0);
+    float b=(float)vector_get(vector,1);
+    return round(a/b);
+}
+
 int sum(int a, int b){
     return a+b;
 }

@@ -8,15 +8,23 @@ int main(int argc, char **argv){
     //printf("Hello World\n");
     char *filename="/home/eka/ClionProjects/CodeAC/input.txt";
 
+    /* First mode, read input as vector2d*/
     //Vector2d *vect2d=readInputAsIntVect2d(filename);
-    //Vector *vect = genericOpVec(&maximum_of_array,vect2d);
+    //Vector *vect = genericOpVec(&divide,vect2d);
     //vector_print(vect);
-    Vector *vector = readInputAsIntVect(filename);
-    int *max;
-    int *min;
+
+    /* second mode, read input as vector*/
+    //Vector *vector = readInputAsIntVect(filename);
+    //int *max;
+    //int *min;
     //max=malloc(sizeof(int));
     //min=malloc(sizeof(int));
-    maxMinOfArray(vector,&max,&min);
-    printf("%d %d\n",*max,*min);
+    //maxMinOfArray(vector,&max,&min);
+    //printf("%d %d\n",*max,*min);
+
+    /* third mode, read input as vector but skip first element*/
+    Vector *vector = readInputAsIntVectSkipFirstValue(filename);
+    Vector *result = fahrenheitToCelciusVect(vector);
+    vector_print(result);
     return 0;
 }
