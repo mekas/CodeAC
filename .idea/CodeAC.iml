@@ -7,6 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/compute.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/io.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/io.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libstring.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libstring.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/structure.c" isTestSource="false" />

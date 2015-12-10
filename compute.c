@@ -4,9 +4,10 @@
 
 #include "compute.h"
 #include "structure.h"
+#include "libstring.h"
 
 int fahrenheitToCelcius(int fahr){
-    int y = round((float)(fahr-32)*100/((float)(212-32)));
+    int y = (int)round((float)(fahr-32)*100/((float)(212-32)));
     return y;
 }
 
@@ -28,7 +29,7 @@ Vector *fahrenheitToCelciusVect(Vector *vect){
 int divide(Vector *vector){
     float a=(float)vector_get(vector,0);
     float b=(float)vector_get(vector,1);
-    return round(a/b);
+    return (int) round(a/b);
 }
 
 int sum(int a, int b){
@@ -91,10 +92,8 @@ void maxMinOfArray(Vector *vector, int **max, int **min){
     int i,x;
     *max=malloc(sizeof(int));
     **max=1<<31; //set initial max to most minimum integer
-    //printf("%d\n",*max);
     *min=malloc(sizeof(int));
     **min= ((unsigned)1<<31)-1; //set initial minimum to maximum integer
-    //printf("%d\n",*min);
 
     for(i=0;i<caps;i++){
         x=vector_get(vector,i);
@@ -103,7 +102,6 @@ void maxMinOfArray(Vector *vector, int **max, int **min){
         if(x<(**min))
             **min=x;
     }
-    //printf("%d %d\n",*max,*min);
 }
 
 Vector *minimumOfVec(Vector2d *vector2d){
@@ -133,4 +131,36 @@ Vector *genericOpVec(int (*func)(Vector *), Vector2d *vector2d){
         vector_append(result,y);
     }
     return result;
+}
+
+int countVowels(char *string){
+    int len=(int)strlen(string);
+    int i,num=0;
+    for (i = 0; i < len; ++i) {
+        if(isVowel(string[i]))
+            num++;
+    }
+    return num;
+}
+
+Vector *countAllVowels(StringBuffer *sb){
+    int i,num=0;
+    Vector *vect=malloc(sizeof(Vector));
+    vector_init(vect);
+    for(i=0;i<sb->size;i++){
+        char *string = sb->string[i];
+        num=countVowels(string);
+        vector_append(vect, num);
+    }
+    return vect;
+}
+
+int isVowel(char c){
+    char vowel[6]={'a','i','u','e','o','y'};
+    int i;
+    for (i = 0; i < 6; i++) {
+        if (c == vowel[i])
+            return 1; //boolean true
+    }
+    return 0; //boolean false
 }

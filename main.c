@@ -23,8 +23,14 @@ int main(int argc, char **argv){
     //printf("%d %d\n",*max,*min);
 
     /* third mode, read input as vector but skip first element*/
-    Vector *vector = readInputAsIntVectSkipFirstValue(filename);
-    Vector *result = fahrenheitToCelciusVect(vector);
-    vector_print(result);
+    //Vector *vector = readInputAsIntVectSkipFirstValue(filename);
+    //Vector *result = fahrenheitToCelciusVect(vector);
+    //vector_print(result);
+
+    /* forth mode, read input as stringbuffer*/
+    StringBuffer *sb=readInputAsStringBuffer(filename);
+    Vector *countV = countAllVowels(sb);
+    vector_print(countV);
+    //stringbuffer_print(sb);
     return 0;
 }

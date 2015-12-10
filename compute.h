@@ -4,8 +4,9 @@
 
 #ifndef CODEAC_COMPUTE_H
 #define CODEAC_COMPUTE_H
-#include "structure.h"
 #include <math.h>
+#include "structure.h"
+#include "libstring.h"
 #define round(x) ((x)>=0?(long)((x)+0.5):(long)((x)-0.5)) //taken from https://www.cs.tut.fi/~jkorpela/round.html
 
 int sum(int , int );
@@ -19,4 +20,9 @@ void maxMinOfArray(Vector *, int **, int **);
 Vector *fahrenheitToCelciusVect(Vector *vect);
 Vector *minimumOfVec(Vector2d *);
 Vector *genericOpVec(int (*func)(Vector *), Vector2d *);
+
+int isVowel(char c);
+int countVowels(char *);
+Vector *countAllVowels(StringBuffer *);
+
 #endif //CODEAC_COMPUTE_H

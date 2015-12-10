@@ -102,7 +102,7 @@ void vector2d_free(Vector2d *vector2d){
     for(i=0;i<caps;i++){
         free(&vector2d->vector[i]);
     }
-    free(vector2d->vector);
+    free(vector2d);
 }
 
 void vector_print(Vector *vector){

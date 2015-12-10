@@ -28,16 +28,40 @@ Vector *readInputAsIntVect(const char *filepath){
 }
 
 /**
+ * Read a file, parse each line, then return as StringBuffer type*/
+StringBuffer *readInputAsStringBuffer(const char *filename){
+    FILE *fp;
+    fp=fopen(filename, "r");
+    StringBuffer *sb;
+    if(fp!=NULL){
+        char line[1000];
+        sb=malloc(sizeof(StringBuffer));
+        stringbuffer_init(sb);
+        fgets(line,sizeof(line),fp);
+        while(fgets(line,sizeof(line),fp)!=NULL){
+            char *string=malloc(sizeof(char)*1000);
+            strcpy(string,line);
+            stringbuffer_append(sb,string);
+        }
+        fclose(fp);
+    } else{
+        perror(filename);
+    }
+    return sb;
+}
+
+/**
  * Read input line as vector but skip the first element
  */
-Vector *readInputAsIntVectSkipFirstValue(const char *filepath){
+Vector *readInputAsIntVectSkipFirstValue(const char *filename){
     FILE *fp;
-    fp=fopen(filepath,"r");
+    fp=fopen(filename, "r");
     Vector *vect;
     //read until not EOF
     //inspiration from http://stackoverflow.com/questions/2372813/reading-one-line-at-a-time-in-c
     if(fp !=NULL){
         char line[1000]; //assuming 1 line not exceeding 1000 characters
+
         while(fgets(line,sizeof(line),fp)!=NULL){
             //printf("%s\n",line);
             vect = parseStringAsIntArr(line);
@@ -45,7 +69,7 @@ Vector *readInputAsIntVectSkipFirstValue(const char *filepath){
         }
         fclose(fp);
     } else {
-        perror(filepath);
+        perror(filename);
     }
     Vector *subvect = vector_subvector(vect,1,vect->size);
     return subvect;

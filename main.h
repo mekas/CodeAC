@@ -9,5 +9,6 @@
 #include "compute.h"
 #include "io.h"
 #include "structure.h"
+#include "libstring.h"
 
 #endif //CODEAC_MAIN_H
